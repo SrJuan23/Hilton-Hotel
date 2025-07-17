@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS pais (
 CREATE TABLE IF NOT EXISTS categoria (
     categoria_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nombre VARCHAR(45) NOT NULL,
-    descripcion TEXT NOT NULL,
+    descripcion VARCHAR(45) NOT NULL,
     servicios_tipicos VARCHAR(100) NOT NULL
 );
 
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS categoria (
 CREATE TABLE IF NOT EXISTS tipohabitacion (
     tipo_habitacion_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nombre VARCHAR(45) NOT NULL,
-    descripcion TEXT NOT NULL
+    descripcion VARCHAR(100) NOT NULL
 );
 
 -- Tabla hotel
