@@ -5,12 +5,35 @@
 <a href="{{ url_for('hotel.crear_hotel') }}" class="btn btn-primary mb-3">Nuevo Hotel</a>
 <table class="table table-bordered">
   <thead>
-    <tr><th>ID</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Año</th><th>Categoría</th><th>País</th></tr>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Año</th>
+      <th>Categoría</th>
+      <th>País</th>
+      <th>Opciones</th>
+    </tr>
   </thead>
   <tbody>
     {% for h in hoteles %}
     <tr>
-      <td>{{ h[0] }}</td><td>{{ h[1] }}</td><td>{{ h[2] }}</td><td>{{ h[3] }}</td><td>{{ h[4] }}</td><td>{{ h[5] }}</td><td>{{ h[6] }}</td>
+      <td>{{ h[0] }}</td>
+      <td>{{ h[1] }}</td>
+      <td>{{ h[2] }}</td>
+      <td>{{ h[3] }}</td>
+      <td>{{ h[4] }}</td>
+      <td>{{ h[5] }}</td>
+      <td>{{ h[6] }}</td>
+
+      <td>
+        <a href="{{ url_for('hotel.editar_hotel', hotel_id=h[0]) }}" class="btn btn-primary">Editar</a>
+        <form action="{{ url_for('hotel.eliminar_hotel', hotel_id=h[0]) }}" method="POST" class="d-inline"
+          onsubmit="return confirm('¿Estás seguro de que deseas eliminar este hotel?');">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

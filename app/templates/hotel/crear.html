@@ -6,12 +6,13 @@
   <div class="mb-3"><label>Nombre</label><input name="nombre" class="form-control" required></div>
   <div class="mb-3"><label>Dirección</label><input name="direccion" class="form-control" required></div>
   <div class="mb-3"><label>Teléfono</label><input name="telefono" class="form-control" required></div>
-  <div class="mb-3"><label>Año de Construcción</label><input name="anio" class="form-control" type="number" required></div>
+  <div class="mb-3"><label>Año de Construcción</label><input name="anio" class="form-control" type="number" required>
+  </div>
   <div class="mb-3">
     <label>Categoría</label>
     <select name="categoria_id" class="form-control" required>
       {% for c in categorias %}
-        <option value="{{ c[0] }}">{{ c[1] }}</option>
+      <option value="{{ c[0] }}">{{ c[1] }}</option>
       {% endfor %}
     </select>
   </div>
@@ -19,7 +20,7 @@
     <label>País</label>
     <select name="pais_codigo" class="form-control" required>
       {% for p in paises %}
-        <option value="{{ p[0] }}">{{ p[1] }}</option>
+      <option value="{{ p[0] }}">{{ p[1] }}</option>
       {% endfor %}
     </select>
   </div>

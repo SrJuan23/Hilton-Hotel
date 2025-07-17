@@ -1,11 +1,7 @@
 from flask import Flask
-from flask_login import LoginManager
-from flask_bcrypt import Bcrypt
 from config import Config
-from .extensions import mysql
+from app.extensions import mysql, bcrypt, login_manager
 
-bcrypt = Bcrypt()
-login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 
 def create_app():

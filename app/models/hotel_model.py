@@ -18,3 +18,22 @@ def insertar_hotel(nombre, direccion, telefono, anio, categoria_id, pais_codigo)
         VALUES (%s, %s, %s, %s, %s, %s)
     """, (nombre, direccion, telefono, anio, categoria_id, pais_codigo))
     mysql.connection.commit()
+
+def eliminar_hotel_por_id(hotel_id):
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM hotel WHERE hotel_id = %s", (hotel_id,))
+    mysql.connection.commit()
+
+def obtener_hotel_por_id(hotel_id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM hotel WHERE hotel_id = %s", (hotel_id,))
+    return cur.fetchone()
+
+def actualizar_hotel(hotel_id, nombre, direccion, telefono, ano_construccion, categoria_id, pais_codigo):
+    cur = mysql.connection.cursor()
+    cur.execute("""
+    UPDATE hotel
+    SET nombre = %s, direccion = %s, telefono = %s, ano_construccion = %s, categoria_id = %s, pais_codigo = %s
+    WHERE hotel_id = %s
+""", (nombre, direccion, ano_construccion, telefono, categoria_id, pais_codigo, hotel_id))
+    mysql.connection.commit()

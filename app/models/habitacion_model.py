@@ -12,10 +12,29 @@ def obtener_habitaciones():
     """)
     return cur.fetchall()
 
-def insertar_habitacion(codigo, hotel_id, tipo_id):
+def insertar_habitacion(codigo, hotel_id, tipo_habitacion_id):
     cur = mysql.connection.cursor()
     cur.execute("""
         INSERT INTO habitacion (codigo_habitacion, hotel_id, tipo_habitacion_id)
         VALUES (%s, %s, %s)
-    """, (codigo, hotel_id, tipo_id))
+    """, (codigo, hotel_id, tipo_habitacion_id))
+    mysql.connection.commit()
+
+def obtener_habitacion_por_id(habitacion_id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM habitacion WHERE habitacion_id = %s", (habitacion_id,))
+    return cur.fetchone()
+
+def actualizar_habitacion(habitacion_id, codigo_habitacion, hotel_id, tipo_habitacion_id):
+    cur = mysql.connection.cursor()
+    cur.execute("""
+        UPDATE habitacion
+        SET codigo_habitacion = %s, hotel_id = %s, tipo_habitacion_id = %s
+        WHERE habitacion_id = %s
+    """, (codigo_habitacion, hotel_id, tipo_habitacion_id, habitacion_id))
+    mysql.connection.commit()
+
+def eliminar_habitacion(habitacion_id):
+    cur = mysql.connection.cursor()
+    cur.execute("DELETE FROM habitacion WHERE habitacion_id = %s", (habitacion_id,))
     mysql.connection.commit()

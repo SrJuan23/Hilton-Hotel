@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Editar Habitación{% endblock %}
+{% block content %}
+<h2>Editar Habitación</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label>Código Habitación</label>
+    <input name="codigo" class="form-control" required value="{{ habitacion[1] }}">
+  </div>
+  <div class="mb-3">
+    <label>Hotel</label>
+    <select name="hotel_id" class="form-control" required>
+      {% for h in hoteles %}
+        <option value="{{ h[0] }}" {% if h[0] == habitacion[2] %}selected{% endif %}>{{ h[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label>Tipo de Habitación</label>
+    <select name="tipo_habitacion_id" class="form-control" required>
+      {% for t in tipos %}
+        <option value="{{ t[0] }}" {% if t[0] == habitacion[3] %}selected{% endif %}>{{ t[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}
