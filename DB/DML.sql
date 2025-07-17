@@ -31,9 +31,3 @@ INSERT INTO habitacion (codigo_habitacion, hotel_id, tipo_habitacion_id) VALUES
 ('HMC-202', 2, 3),
 ('HMD-301', 3, 1);
 
--- Usuarios
-INSERT INTO usuarios (nombre, correo, clave, pais_codigo) VALUES
-('Admin Hilton', 'admin@hilton.com', '$2b$12$eRvXm1tKUYkMfuW9XkTGEuRwVIEiWdquYcZhYy7ixm74S04H5ImCS', 1), -- clave: admin123
-('Juan Pérez', 'juan@correo.com', '$2b$12$sdjkfhksdjhfksdjhfkjsdhfksjdfhksdjfhksdf2', 2),
-('María López', 'maria@correo.com', '$2b$12$83hdkf82hfksjdfhksdf2h3kjfsd7fhs', 3),
-('Carlos Méndez', 'carlos@correo.com', '$2b$12$ajfh72gfh28fhw9df8y92fhsdf72', 1);

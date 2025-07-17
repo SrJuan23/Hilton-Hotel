@@ -12,7 +12,7 @@ class Usuario(UserMixin):
         self.nombre = nombre
         self.correo = correo
 
-# Carga del usuario por ID (obligatorio para Flask-Login)
+
 @login_manager.user_loader
 def load_user(user_id):
     user = buscar_usuario_por_id(user_id)
