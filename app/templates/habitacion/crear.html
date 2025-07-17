@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Crear Habitación{% endblock %}
+{% block content %}
+<h2>Nueva Habitación</h2>
+<form method="POST">
+  <div class="mb-3"><label>Código</label><input name="codigo_habitacion" class="form-control" required></div>
+  <div class="mb-3">
+    <label>Hotel</label>
+    <select name="hotel_id" class="form-control" required>
+      {% for h in hoteles %}
+        <option value="{{ h[0] }}">{{ h[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label>Tipo de Habitación</label>
+    <select name="tipo_habitacion_id" class="form-control" required>
+      {% for t in tipos %}
+        <option value="{{ t[0] }}">{{ t[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

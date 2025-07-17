@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Crear Tipo de Habitación{% endblock %}
+{% block content %}
+<h2>Nuevo Tipo de Habitación</h2>
+<form method="POST">
+  <div class="mb-3"><label>Nombre</label><input name="nombre" class="form-control" required></div>
+  <div class="mb-3"><label>Descripción</label><textarea name="descripcion" class="form-control" required></textarea></div>
+  <button class="btn btn-success">Guardar</button>
+</form>
+{% endblock %}

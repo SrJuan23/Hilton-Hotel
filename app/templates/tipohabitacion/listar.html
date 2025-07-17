@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Tipos de Habitación{% endblock %}
+{% block content %}
+<h2>Tipos de Habitación</h2>
+<a href="{{ url_for('tipo.crear_tipo') }}" class="btn btn-primary mb-3">Nuevo Tipo</a>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Descripción</th></tr>
+  </thead>
+  <tbody>
+    {% for t in tipos %}
+    <tr>
+      <td>{{ t[0] }}</td><td>{{ t[1] }}</td><td>{{ t[2] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

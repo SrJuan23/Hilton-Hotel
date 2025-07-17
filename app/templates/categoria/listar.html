@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Categorías de Hotel{% endblock %}
+{% block content %}
+<h2>Categorías</h2>
+<a href="{{ url_for('categoria.crear_categoria') }}" class="btn btn-primary mb-3">Nueva Categoría</a>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th><th>Nombre</th><th>Descripción</th><th>Servicios</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in categorias %}
+    <tr>
+      <td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

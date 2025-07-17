@@ -18,6 +18,15 @@ def create_app():
 
     
     from app.controllers.auth_controller import auth_bp
+    from app.controllers.hotel_controller import hotel_bp
+    from app.controllers.categoria_controller import categoria_bp
+    from app.controllers.habitacion_controller import habitacion_bp
+    from app.controllers.tipo_habitacion_controller import tipo_bp
+
     app.register_blueprint(auth_bp)
+    app.register_blueprint(hotel_bp)
+    app.register_blueprint(categoria_bp)
+    app.register_blueprint(habitacion_bp)
+    app.register_blueprint(tipo_bp)
 
     return app

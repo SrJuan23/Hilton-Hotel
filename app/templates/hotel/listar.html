@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Hoteles{% endblock %}
+{% block content %}
+<h2>Hoteles</h2>
+<a href="{{ url_for('hotel.crear_hotel') }}" class="btn btn-primary mb-3">Nuevo Hotel</a>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Año</th><th>Categoría</th><th>País</th></tr>
+  </thead>
+  <tbody>
+    {% for h in hoteles %}
+    <tr>
+      <td>{{ h[0] }}</td><td>{{ h[1] }}</td><td>{{ h[2] }}</td><td>{{ h[3] }}</td><td>{{ h[4] }}</td><td>{{ h[5] }}</td><td>{{ h[6] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
