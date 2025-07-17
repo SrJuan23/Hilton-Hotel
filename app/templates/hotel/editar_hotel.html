@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Editar Hotel{% endblock %}
+
+{% block content %}
+<h2>Editar Hotel</h2>
+
+<form method="POST">
+  <div class="mb-3">
+    <label>Nombre</label>
+    <input type="text" name="nombre" class="form-control" value="{{ hotel[1] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Dirección</label>
+    <input type="text" name="direccion" class="form-control" value="{{ hotel[2] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Año de Construcción</label>
+    <input type="number" name="anio" class="form-control" value="{{ hotel[3] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Teléfono</label>
+    <input type="text" name="telefono" class="form-control" value="{{ hotel[4] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Categoría</label>
+    <select name="categoria_id" class="form-control" required>
+      {% for c in categorias %}
+        <option value="{{ c[0] }}" {% if c[0] == hotel[5] %}selected{% endif %}>{{ c[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>País</label>
+    <select name="pais_codigo" class="form-control" required>
+      {% for p in paises %}
+        <option value="{{ p[0] }}" {% if p[0] == hotel[6] %}selected{% endif %}>{{ p[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+  <a href="{{ url_for('hotel.listar_hoteles') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

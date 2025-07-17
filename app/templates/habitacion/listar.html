@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Habitaciones{% endblock %}
+{% block content %}
+<h2>Habitaciones</h2>
+<a href="{{ url_for('habitacion.crear_habitacion') }}" class="btn btn-primary mb-3">Nueva Habitación</a>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Código</th><th>Hotel</th><th>Tipo</th><th>Opciones</th></tr>
+  </thead>
+  <tbody>
+    {% for h in habitaciones %}
+    <tr>
+      <td>{{ h[0] }}</td><td>{{ h[1] }}</td><td>{{ h[2] }}</td><td>{{ h[3] }}</td><td>
+        <a href="{{ url_for('habitacion.editar_habitacion', habitacion_id=h[0]) }}" class="btn btn-primary">Editar</a>
+        <form action="{{ url_for('habitacion.eliminar_habitacion_route', habitacion_id=h[0]) }}" method="POST" class="d-inline"
+          onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta habitacion?');">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

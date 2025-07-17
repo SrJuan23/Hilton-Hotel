@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Editar Tipo de Habitación{% endblock %}
+{% block content %}
+<h2>Editar Tipo de Habitación</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label>Nombre</label>
+    <input name="nombre" class="form-control" required value="{{ tipo[1] }}">
+  </div>
+  <div class="mb-3">
+    <label>Descripción</label>
+    <input name="descripcion" class="form-control" required value="{{ tipo[2] }}">
+  </div>
+  <button class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}

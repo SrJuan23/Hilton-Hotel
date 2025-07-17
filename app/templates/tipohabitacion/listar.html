@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Tipos de Habitación{% endblock %}
+{% block content %}
+<h2>Tipos de Habitación</h2>
+<a href="{{ url_for('tipo.crear_tipo') }}" class="btn btn-primary mb-3">Nuevo Tipo</a>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Opciones</th></tr>
+  </thead>
+  <tbody>
+    {% for t in tipos %}
+    <tr>
+      <td>{{ t[0] }}</td><td>{{ t[1] }}</td><td>{{ t[2] }}</td><td>
+        <a href="{{ url_for('tipo.editar_tipo_habitacion', tipo_habitacion_id=t[0]) }}" class="btn btn-primary">Editar</a>
+        <form action="{{ url_for('tipo.eliminar_tipo_habitacion', tipo_habitacion_id=t[0]) }}" method="POST" class="d-inline"
+          onsubmit="return confirm('¿Estás seguro de que deseas eliminar este tipo de habitacion?');">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h2 class="mb-4">Panel de Gestión Hilton</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    <div class="col">
+      <div class="card border-primary shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-building"></i> Hoteles</h5>
+          <p class="card-text">Gestiona los hoteles: nombre, dirección, teléfono, año.</p>
+          <a href="{{ url_for('hotel.listar_hoteles') }}" class="btn btn-outline-primary w-100">Ver Hoteles</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border-success shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-bookmark-star"></i> Categorías</h5>
+          <p class="card-text">Administra categorías de hotel como lujo, ecohotel, etc.</p>
+          <a href="{{ url_for('categoria.listar_categorias') }}" class="btn btn-outline-success w-100">Ver Categorías</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border-warning shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-door-open"></i> Habitaciones</h5>
+          <p class="card-text">Gestiona habitaciones vinculadas a hoteles y tipos.</p>
+          <a href="{{ url_for('habitacion.listar_habitaciones') }}" class="btn btn-outline-warning w-100">Ver Habitaciones</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card border-danger shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title"><i class="bi bi-layout-text-sidebar-reverse"></i> Tipos de Habitación</h5>
+          <p class="card-text">Individual, doble, suite, penthouse y más.</p>
+          <a href="{{ url_for('tipo.listar_tipos') }}" class="btn btn-outline-danger w-100">Ver Tipos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
